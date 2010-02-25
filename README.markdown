@@ -1,4 +1,6 @@
 Jrabbit's experimental Fink Packages [Not a haberdashery]
+-----------
+
 My notes and packages for [Fink](http://www.finkproject.org/). (warning: they might suck or not work or be terribly lame)
 
 To build:
