@@ -1,0 +1,27 @@
+Info3: <<
+Package: restinpeace-mac-py%type_pkg[python]
+Version: 0.8
+Revision: 1
+Type: python (2.5 2.6)
+Source: http://kib2.free.fr/reSTinPeace/betas/reStInPeace_beta_0.8.zip
+Source-MD5: a083d52ac3988f64812e56148cbcbd0a
+SourceDirectory: reStInPeace
+Source2:
+Source2-MD5:
+Source2ExtractDir: restinpeace-launcher
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://kib2.free.fr/reSTinPeace/
+License: GPL
+Description:  ReStructuredText editor using pyQT-mac
+# PatchFile: 
+# PatchFile-MD5: 
+# PatchScript: patch -p1
+Depends: python%type_pkg[python], pyqt4-mac-py%type_pkg[python]-bin, docutils-py%type_pkg[python], pygments-py%type_pkg[python], psyco-py%type_pkg[python]
+# BuildDepends: 
+CompileScript: echo Skipping Compile
+InstallScript: <<
+mkdir -p %i/lib/%n %i/bin && cp -pR * %i/lib/%n/
+ln -s ../lib/%n/reStInPeace.py %i/bin/reStInPeace
+chmod +x %i/bin/reStInPeace
+<<	
+<<

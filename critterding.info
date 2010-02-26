@@ -1,0 +1,25 @@
+Info2: <<
+Package: critterding
+Version: 0.11
+Revision: 1
+Source: http://downloads.sourceforge.net/project/critterding/critterding/sources/critterding-beta11.tar.bz2
+Source-MD5: 4076416c45d7c5dc8ca51bda2c042a17
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://critterding.sourceforge.net/
+License: GPL
+Description: Genetic evolution using simulated "critters"
+PatchFile: %n.patch
+PatchFile-MD5: 013d854cd40a647510be2eeb3409db94
+# Thanks to manwithgrenade from aur.archlinux.org
+BuildDepends: freetype219-shlibs, fink (>= 0.24.12), sdl-shlibs, freetype219, sdl
+Conflicts: libftgl1, libftgl1-shlibs, critterding-telepathy
+Replaces: critterding-telepathy
+BuildConflicts: libftgl1, libftgl1-shlibs
+ConfigureParams: --x-libraries=/usr/X11R6/lib --x-includes=/usr/X11R6/include --prefix=%p CPPFLAGS="-I%p/include/freetype2 -I%p/include/ -I/usr/X11R6/include -I%p/include/SDL " LDFLAGS="-L/usr/X11R6/lib -L%p/lib -L%p/lib `sdl-config --libs` -lGL `freetype-config --libs` -Wl,-framework,GLUT -Wl,-framework,OpenGL -lobjc" CFLAGS="-arch %m" CXXFLAGS="-arch %m" LIBS="-L/usr/X11R6/lib -L%p/lib -L%p/lib `sdl-config --libs` -lGL `freetype-config --libs` -Wl,-framework,GLUT -Wl,-framework,OpenGL -lobjc"
+CompileScript: <<
+autoreconf -fi
+./configure %c
+make
+<<
+InstallScript: make install DESTDIR=%d
+ <<	

@@ -1,0 +1,25 @@
+Info2: <<
+Package: critterding-telepathy
+Version: 0.12
+Revision: 1
+Source: http://ansistego.sf.net/telepathic-critterdrug-svn.tgz
+Source-MD5: 72769d4b8e981faf247ed69d01e396b5
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://m-net.arbornet.org/~flamoot/telepathic-critterdrug.html
+License: GPL
+Description: Genetic evolution using simulated "critters" with drugs
+# PatchFile: %n.patch
+# PatchFile-MD5: 013d854cd40a647510be2eeb3409db94
+# Thanks to manwithgrenade from aur.archlinux.org // Patch not needed due to DejaVuSans being distributable
+BuildDepends: freetype219-shlibs, fink (>= 0.24.12), sdl-shlibs, freetype219, sdl
+Conflicts: libftgl1, libftgl1-shlibs, critterding
+Replaces: critterding
+BuildConflicts: libftgl1, libftgl1-shlibs
+ConfigureParams: --x-libraries=/usr/X11R6/lib --x-includes=/usr/X11R6/include --prefix=%p CPPFLAGS="-I%p/include/freetype2 -I%p/include/ -I/usr/X11R6/include -I%p/include/SDL " LDFLAGS="-L/usr/X11R6/lib -L%p/lib -L%p/lib `sdl-config --libs` -lGL `freetype-config --libs` -Wl,-framework,GLUT -Wl,-framework,OpenGL -lobjc" CFLAGS="-arch %m" CXXFLAGS="-arch %m" LIBS="-L/usr/X11R6/lib -L%p/lib -L%p/lib `sdl-config --libs` -lGL `freetype-config --libs` -Wl,-framework,GLUT -Wl,-framework,OpenGL -lobjc"
+CompileScript: <<
+autoreconf -fi
+./configure %c
+make
+<<
+InstallScript: make install DESTDIR=%d
+ <<	

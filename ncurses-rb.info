@@ -1,0 +1,19 @@
+Info2: <<
+Package: ncurses-rb%type_pkg[ruby]
+Version: 1.2.4
+Revision: 1
+Type: ruby (1.8)
+Source: http://download2.berlios.de/ncurses-ruby/ncurses-ruby-%v.tar.bz2
+Source-MD5: 8a3e0ed33ac245241b6afd911520c205
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://ncurses-ruby.berlios.de/
+License: LGPL
+Description: Ruby module for accessing the ncurses library
+Depends: ruby%type_pkg[ruby]
+BuildDepends:  ruby%type_pkg[ruby]-dev, libncurses5-shlibs, libncurses5
+CompileScript: <<
+%p/bin/ruby%type_raw[ruby] extconf.rb
+make
+<<
+InstallScript: make install DESTDIR=%d
+ <<	

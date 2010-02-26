@@ -1,0 +1,23 @@
+Info2: <<
+Package: tpp-rb%type_pkg[ruby]
+Version: 1.3.1
+Revision: 1
+Type: ruby (1.8)
+Source: http://www.ngolde.de/download/tpp-%v.tar.gz
+Source-MD5: 35eebb38497e802df1faa57077dab2d1
+PatchFile: tpp-rb.patch
+PatchFile-MD5: 04948767b5fb900d0498bd899aefbb8c
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://www.ngolde.de/tpp.html
+License: GPL
+Description: Ruby presentation creater using ncurses
+Depends: ruby%type_pkg[ruby],  ncurses-rb%type_pkg[ruby]
+BuildDepends:  ruby%type_pkg[ruby]-dev, fink (>= 0.24.12)
+PatchScript: sed 's|@FINKPREFIX@|%i|g' <%{PatchFile} | patch Makefile 
+CompileScript: echo "do nothing"
+InstallScript: <<
+install -m 755  -o root -g 0 -d %i/share/man/man1
+install -m 755  -o root -g 0 -d %i/bin
+make install
+<<
+<<	

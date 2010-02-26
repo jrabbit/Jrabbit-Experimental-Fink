@@ -1,0 +1,19 @@
+--- telepathic-critterdrug-svn/src/gui/textprinter.cpp	2009-10-22 14:34:05.532300821 +0600
++++ telepathic-critterdrug-svn/src/gui/textprinter.cpp	2009-10-22 14:34:38.668966396 +0600
+@@ -153,14 +153,14 @@
+ 	
+ 	char const *fontFilePath;
+ 	//fontFilePath = "fonts/helvetica_3.ttf";
+-	fontFilePath = "fonts/verdana.ttf";
++	fontFilePath = "/Library/Fonts/Verdana.ttf";
+ 
+ 	// Allocate an array to hold all fonts
+ 	fonts = new FTFont *[1];
+ 
+ 	if ( !file.exists(fontFilePath) )
+ 	{
+-		fontFilePath = "../fonts/verdana.ttf";
++		fontFilePath = "/Library/Fonts/Verdana.ttf";
+ 		if ( !file.exists(fontFilePath) )
+ 		{
+ 			cerr << "Count not find font " << fontFilePath << endl;

@@ -1,0 +1,15 @@
+diff -urN deluge-1.1.0/setup.py /Users/jack/Projects/deluge/deluge-1.1.0/setup.py
+--- deluge-1.1.0/setup.py	2009-01-10 20:24:16.000000000 -0600
++++ /Projects/deluge/deluge-1.1.0/setup.py	2009-01-11 18:58:55.000000000 -0600
+@@ -129,8 +129,9 @@
+     _library_dirs += [sysconfig.get_config_var("LIBDIR"), '/opt/local/lib']
+     if osx_check():
+         _include_dirs += [
+-            '/opt/local/include/boost-1_35',
+-            '/opt/local/include/boost-1_36'
++            '@FINKPREFIX@/include/boost',
++            '@FINKPREFIX@/include/boost-1_35'
++            #Revised for Fink based installs
+         ]
+     _libraries = [
+         'boost_filesystem',

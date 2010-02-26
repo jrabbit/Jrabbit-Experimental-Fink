@@ -1,0 +1,7 @@
+--- Makefile	2010-01-10 15:56:12.000000000 -0600
++++ Makefile.new	2010-01-10 14:59:18.000000000 -0600
+@@ -5,3 +5,3 @@
+ BIN = tpp  
+-prefix=/usr/local
++prefix= @FINKPREFIX@
+ INSPATH= $(prefix)/bin/
