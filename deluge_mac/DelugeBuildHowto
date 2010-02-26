@@ -1,0 +1,28 @@
+DELUGE.APP -- 1.1SVN -- "FORK YOU"
+Compile Process: 
+* Download and configure the required GTK+, cairo and the python bindings for them.
+* Download the latest svn: "svn co http://svn.deluge-torrent.org/trunk deluge"
+* Compile The SVN
+
+Option 1 Fink:
+http://www.finkproject.org/download/srcdist.php
+Follow those steps to get the fink packagemanager working.
+Once Fink is at one with your $PATH install the following via "sudo fink install":
+pyxdg-py25 gobject boost1.35.python25 cario gtk+2 gtk+2-dev libglade2 librsvg2-gtk
+Deluge should build according to instructions on http://dev.deluge-torrent.org/wiki/Faq#HowdoIinstall1.0SVN
+*You may need to "sudo python setup.py install_data"*
+
+TO-DO:
+* Interface with launchd from launchctl to allow proper deamonization. http://developer.apple.com/macosx/launchd.html
+Unneeded - http://dev.deluge-torrent.org/changeset/4430
+* GUI based launch.
+* Remove X11 dep with naitive GTK.
+* Fink inclusion
+* Document process in depth to facilitate duplication
+* allow import of .torrent via macos + firefox/safari
+* Libtorrent binary packaging.	
+* force good themes with gtk2-engines + gtk-change-theme
+
+
+Public link:
+http://dev.deluge-torrent.org/wiki/BuildWithFink

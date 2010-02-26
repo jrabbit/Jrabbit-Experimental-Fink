@@ -1,0 +1,2 @@
+#!/bin/bash
+fink install python25 python25-shlibs xdg-base pyxdg-py25 gtk+2 librsvg2-gtk pygtk2-gtk-py25 pygobject2-py25 boost1.35.nopython libglade2 gtk+2-dev pygobject2-py25-dev pygobject2-py25-shlibs pycairo-py25-dev gtk-engines gtk-change-theme setuptools-py25
