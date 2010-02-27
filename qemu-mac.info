@@ -1,5 +1,5 @@
 Info2: <<
-Package: qemu-img
+Package: qemu-mac
 Version: 0.12.3
 Revision: 1
 Source: http://download.savannah.gnu.org/releases/qemu/qemu-%v.tar.gz
@@ -7,11 +7,12 @@ Source-MD5: d215e4568650e8019816397174c090e1
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.qemu.org/
 License: GPL
-Description: QEMU's tool to convert vm partiton types
+Description: System emulator supporting many CPU types
 # PatchFile: %n.patch
 # PatchFile-MD5: 
 
-ConfigureParams: -prefix=%p
+ConfigureParams: -prefix=%p --disable-darwin-user --enable-cocoa --disable-bsd-user
+#Thanks to http://github.com/mxcl/homebrew/blob/master/Library/Formula/qemu.rb
 CompileScript: <<
 ./configure %c
 make
