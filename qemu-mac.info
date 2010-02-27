@@ -17,5 +17,5 @@ CompileScript: <<
 ./configure %c
 make
 <<
-InstallScript: make qemu-img install DESTDIR=%d
+InstallScript: make install DESTDIR=%d
  <<	
