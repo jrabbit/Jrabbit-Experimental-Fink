@@ -11,7 +11,7 @@ Description: Genetic evolution using simulated "critters"
 PatchFile: %n.patch
 PatchFile-MD5: 013d854cd40a647510be2eeb3409db94
 # Thanks to manwithgrenade from aur.archlinux.org
-BuildDepends: fink (>= 0.24.12), freetype219, sdl
+BuildDepends: fink (>= 0.24.12), freetype219, sdl, autoconf2.6
 Depends: freetype219-shlibs, sdl-shlibs
 Conflicts: libftgl1, critterding-telepathy
 Replaces: critterding-telepathy
