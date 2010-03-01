@@ -1,16 +1,16 @@
 Info2: <<
 Package: deluge
-Version: 1.1.9
+Version: 1.2.1
 Revision: 1
 Type: python (2.5 2.6)
 Source: http://download.deluge-torrent.org/source/deluge-%v.tar.bz2
-Source-MD5: 38b9dbf255ed9620760d546dbb757882
+Source-MD5: d85bfdc6eb4a4ed54e2d23ebe6bf8102
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://deluge-torrent.org/
 License: GPL
 Description: Python Bittorrent client
-Depends: pyxdg-py25, gtk+2, librsvg2-gtk, pygtk2-gtk-py25, pygobject2-py25, setuptools-py25, boost1.35.python25-shlibs
-BuildDepends: boost1.35.nopython, libglade2, gtk+2-dev, pygobject2-py25-dev, pygobject2-py25-shlibs, pycairo-py25-dev, setuptools-py25, fink (>= 0.24.12), boost1.35.python25
+Depends: pyxdg-py%type_raw[python], gtk+2, librsvg2-gtk, pygtk2-gtk-py%type_raw[python], pygobject2-py%type_raw[python], setuptools-py%type_raw[python], boost1.35.python%type_raw[python]-shlibs, chardet-py%type_raw[python]
+BuildDepends: boost1.35.nopython, libglade2, gtk+2-dev, pygobject2-py%type_raw[python]-dev, pygobject2-py%type_raw[python]-shlibs, pycairo-py%type_raw[python]-dev, setuptools-py%type_raw[python], fink (>= 0.24.12), boost1.35.python%type_raw[python]
 CompileScript: %p/bin/python%type_raw[python] setup.py build
 InstallScript: %p/bin/python%type_raw[python] setup.py install --root %d
  <<	
