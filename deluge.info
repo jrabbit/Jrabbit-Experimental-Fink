@@ -4,7 +4,7 @@ Version: 1.2.1
 Revision: 1
 Type: python (2.5 2.6)
 Source: http://download.deluge-torrent.org/source/deluge-%v.tar.bz2
-Source-MD5: d85bfdc6eb4a4ed54e2d23ebe6bf8102
+Source-MD5: ea6d6c7af48ca05e4e808c960563d78d
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://deluge-torrent.org/
 License: GPL
