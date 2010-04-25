@@ -1,0 +1,22 @@
+Info2: <<
+Package: protobuf
+Version: 2.3.0
+Revision: 1
+Source: http://protobuf.googlecode.com/files/protobuf-2.3.0.tar.gz
+Source-MD5: 65dba2c04923595b6f0a6a44d8106f0a
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://code.google.com/p/protobuf/
+Description:  Google's data interchange format
+License: BSD
+ConfigureScript: ./configure --prefix=%p
+CompileSctipt: make
+InstallScript: make install DESTDIR=%d
+SplitOff: <<
+	Package: protobuf-py%type_pkg[python]
+	Type: python (2.5 2.6)
+	Depends: protobuf
+	Description: Python interface to google's protobuf
+	BuildDepends: setuptools-py%type_pkg[python], fink (>= 0.24.12)
+	CompileScript: %p/bin/python%type_raw[python] python/setup.py build
+	InstallScript: %p/bin/python%type_raw[python] python/setup.py install --root %d
+ <<
