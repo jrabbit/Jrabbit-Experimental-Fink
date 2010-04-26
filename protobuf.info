@@ -17,6 +17,7 @@ SplitOff: <<
 	Depends: protobuf
 	Description: Python interface to google's protobuf
 	BuildDepends: setuptools-py%type_pkg[python], fink (>= 0.24.12)
-	CompileScript: %p/bin/python%type_raw[python] python/setup.py build
-	InstallScript: %p/bin/python%type_raw[python] python/setup.py install --root %d
+	CompileScript: cd python && %p/bin/python%type_raw[python] setup.py build
+	InstallScript: cd python && %p/bin/python%type_raw[python] setup.py install --root %d
+ <<
  <<
