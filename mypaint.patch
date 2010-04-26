@@ -1,0 +1,80 @@
+From 8371b7b5c0d97e713c9d74e0f8bbfd66e17d377d Mon Sep 17 00:00:00 2001
+From: Martin Renold <martinxyz@gmx.ch>
+Date: Sat, 20 Feb 2010 10:18:58 +0100
+Subject: [PATCH] build: some darvin specific stuff
+
+http://forum.intilinux.com/mypaint-development-and-suggestions/mac-osx-port/15/
+http://www.zhadum.ch/osx.diff
+---
+ SConstruct     |   19 +++++++++++++------
+ lib/SConscript |    2 ++
+ 2 files changed, 15 insertions(+), 6 deletions(-)
+
+diff --git a/SConstruct b/SConstruct
+index 34ef935..44373bd 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -3,6 +3,8 @@ from os.path import join, basename
+ 
+ EnsureSConsVersion(1, 0)
+ 
++# FIXME: sometimes it would be good to build for a different python
++# version than the one running scons. (But how to find all paths then?)
+ python = 'python%d.%d' % (sys.version_info[0], sys.version_info[1])
+ print 'Building for', python
+ 
+@@ -15,13 +17,14 @@ except ImportError:
+ 
+ SConsignFile() # no .scsonsign into $PREFIX please
+ 
+-# Does option parsing really screw up the win32 build? if no, remove comment
+-#if sys.platform == "win32":
+-#    env = Environment(ENV=os.environ)
+-#else:
++if sys.platform == "darwin":
++    default_prefix = '/opt/local/'
++else:
++    default_prefix = '/usr/local/'
+ 
+ opts = Variables()
+-opts.Add(PathVariable('prefix', 'autotools-style installation prefix', '/usr/local', validator=PathVariable.PathIsDirCreate))
++opts.Add(PathVariable('prefix', 'autotools-style installation prefix', default_prefix, validator=PathVariable.PathIsDirCreate))
++
+ opts.Add(BoolVariable('debug', 'enable HEAVY_DEBUG and disable optimizations', False))
+ env = Environment(ENV=os.environ, options=opts)
+ if sys.platform == "win32":
+@@ -40,13 +43,17 @@ env.Append(CPPPATH=numpy_path)
+ if sys.platform == "win32":
+     env.ParseConfig('pkg-config --cflags --libs python25') # These two '.pc' files you probably have to make for yourself.
+     env.ParseConfig('pkg-config --cflags --libs numpy')    # Place them among the other '.pc' files ( where the 'glib-2.0.pc' is located .. probably )
++elif sys.platform == "darwin":
++    env.ParseConfig(python + '-config --cflags')
++    env.ParseConfig(python + '-config --ldflags')
+ else:
+     # some distros use python2.5-config, others python-config2.5
+     try:
+         env.ParseConfig(python + '-config --cflags --ldflags')
+     except OSError:
+         print 'going to try python-config instead'
+-        env.ParseConfig('python-config --cflags --ldflags')
++        env.ParseConfig(python + '-config --cflags')
++        env.ParseConfig(python + '-config --ldflags')
+ 
+ if env.get('CPPDEFINES'):
+     # make sure assertions are enabled
+diff --git a/lib/SConscript b/lib/SConscript
+index ae04cf3..3b31144 100644
+--- a/lib/SConscript
++++ b/lib/SConscript
+@@ -14,6 +14,8 @@ env.Clean('.', 'mypaintlib.py')
+ src = 'mypaintlib_wrap.cpp'
+ if sys.platform == "win32": # there 's a better way to do this 
+     module = env.LoadableModule('_mypaintlib', Split(src), SHLIBPREFIX="", SHLIBSUFFIX=".pyd")
++elif sys.platform == "darwin":
++    module = env.LoadableModule('_mypaintlib', Split(src), SHLIBPREFIX="", SHLIBSUFFIX=".so")
+ else:
+     module = env.LoadableModule('_mypaintlib', Split(src), SHLIBPREFIX="")
+ 
+-- 
+1.6.1
+

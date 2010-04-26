@@ -1,15 +1,20 @@
 Info2: <<
 Package: mypaint-py%type_pkg[python]
 Version: 0.8.2
-Revision: 1
+Revision: 2
 Type: python (2.5 2.6)
 Source: http://download.gna.org/mypaint/mypaint-%v.tar.bz2
 Source-MD5: 4382912b5d70574a61dc53a2a10fe566
+PatchFile: mypaint.patch
+PatchFile-MD5: 79ed499931f4098338a0429540e49700
+#thank you Martin Renold http://gitorious.org/mypaint/mypaint/commit/8371b7b5c0d97e713c9d74e0f8bbfd66e17d377d
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://mypaint.intilinux.com/
 License: GPL
 Description: Py-GTK painting application
 Depends: swig, numpy-py%type_pkg[python], protobuf-py%type_pkg[python], gtk+2, pycairo-py%type_pkg[python], pygtk2-gtk-py%type_pkg[python]
-BuildDepends: gtk+2-dev, pycairo-py%type_pkg[python]-dev, scons
-InstallScript: scons prefix=%d install
+BuildDepends: gtk+2-dev, pycairo-py%type_pkg[python]-dev, scons, fink (>= 0.24.12)
+PatchScript: 
+CompileScript: echo "do nothing"
+InstallScript: %p/bin/python%type_raw[python] %p/bin/scons prefix=%d%p install
  <<
