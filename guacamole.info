@@ -1,0 +1,26 @@
+Info2: <<
+Package: guacamole
+Version: 0.2.0
+Revision: 1
+Type: java(1.5)
+Source: http://downloads.sourceforge.net/project/guacamole/guacamole-0.2.0.tar.gz
+Source-MD5: fa035c56dbe55c1b0aa4d797deaa6c23
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://critterding.sourceforge.net/
+License: AGPL
+Description: (Java-backed) HTML5 and JavaScript (AJAX) viewer for VNC
+Depends: tomcat6
+CompileScript: echo "Do nothing."
+ConfFiles: <<
+%p/var/lib/%n/conf/%n.xml
+%p/var/lib/%n/conf/%n-users.xml
+<<
+InstallScript:<<
+install -d -m 755 %i/var/lib/%n/
+install -d -m 755 %i/var/lib/%n/conf
+install -m 755 %n-users.xml %i/var/lib/%n/conf/%n-users.xml
+install -m 755 %n.xml %i/var/lib/%n/%n.xml
+install -m 755 %n.war %i/var/lib/%n/
+<<
+DocFiles: LICENSE
+<<
