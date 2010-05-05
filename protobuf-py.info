@@ -1,0 +1,16 @@
+Info2: <<
+Package: protobuf-py%type_pkg[python]
+Version: 2.3.0
+Revision: 1
+Type: python (2.5 2.6)
+Source: http://protobuf.googlecode.com/files/protobuf-2.3.0.tar.gz
+Source-MD5: 65dba2c04923595b6f0a6a44d8106f0a
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://code.google.com/p/protobuf/
+License: BSD
+Description: Python interface to google's protobuf
+Depends: protobuf
+BuildDepends: setuptools-py%type_pkg[python], fink (>= 0.24.12)
+CompileScript: %p/bin/python%type_raw[python] setup.py build
+InstallScript: %p/bin/python%type_raw[python] setup.py install --root %d
+ <<
