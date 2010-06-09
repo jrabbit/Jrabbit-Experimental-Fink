@@ -1,0 +1,32 @@
+Info2: <<
+Package: apiextractor-mac-py%type_pkg[python]
+Version: 0.6.0
+Revision: 1
+Type: python (2.5 2.6)
+Source: http://www.pyside.org/files/apiextractor-%v.tar.bz2
+Source-MD5: 7bbd0df7c826eb7d158daaba1be5f55a
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://www.pyside.org/
+License: GPL
+Description: Parses the header and typesystem files to create a representation of the QT API
+Depends: qt4-mac-core-shlibs (>= 4.5.0), qt4-mac-gui-shlibs (>= 4.5.0), python%type_pkg[python], libxml2, libxslt
+BuildDepends: cmake (>= 2.6.0), python%type_pkg[python]-shlibs, libxml2-shlibs, libxslt-shlibs, pkgconfig, sphinx-py%type_pkg[python]
+# PatchFile: %n.patch
+# PatchFile-MD5: 
+
+CompileScript: <<
+#!/bin/sh -ev
+ export PATH=%p/lib/qt4-%type_pkg[qt]/bin:$PATH  
+ %p/bin/cmake \
+ --debug-output -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+ -DCMAKE_INSTALL_PREFIX:PATH=%p \
+ -DCMAKE_INCLUDE_PATH:PATH=%p/include \
+ -DCMAKE_LIBRARY_PATH:PATH=%p/lib \
+ -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING="" \
+ -DCMAKE_OSX_SYSROOT:PATH="/" \
+ .
+
+make
+<<
+InstallScript: make install
+ <<

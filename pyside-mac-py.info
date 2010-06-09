@@ -1,0 +1,34 @@
+Info2: <<
+Package: pyside-mac-py%type_pkg[python]
+Version: 0.3.2
+Revision: 1
+Type: python (2.5 2.6)
+Source: http://www.pyside.org/files/pyside-qt4.6+%v.tar.bz2
+Source-MD5: c7fb5e1c22443cdfaebdb3d0e432a4ae
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://www.pyside.org/
+License: GPL
+Description: Python bindings for QT4
+Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0), shiboken-mac-py%type_pkg[python], generatorrunner-mac-py%type_pkg[python]
+BuildDepends: cmake (>= 2.6.0), pkgconfig, shiboken-mac-py%type_pkg[python]-shlibs, generatorrunner-mac-py%type_pkg[python]-shlibs
+# PatchFile: %n.patch
+# PatchFile-MD5: 
+
+ConfigureParams: -prefix=%p
+
+CompileScript: <<
+#!/bin/sh -ev
+ export PATH=%p/lib/qt4-%type_pkg[qt]/bin:$PATH  
+ %p/bin/cmake \
+ --debug-output -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+ -DCMAKE_INSTALL_PREFIX:PATH=%p \
+ -DCMAKE_INCLUDE_PATH:PATH=%p/include \
+ -DCMAKE_LIBRARY_PATH:PATH=%p/lib \
+ -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING="" \
+ -DCMAKE_OSX_SYSROOT:PATH="/" \
+ .
+
+make
+<<
+InstallScript: make install
+ <<
