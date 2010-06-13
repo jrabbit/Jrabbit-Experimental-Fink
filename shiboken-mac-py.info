@@ -7,16 +7,16 @@ Source: http://www.pyside.org/files/shiboken-%v.tar.bz2
 Source-MD5: 802ecf28206aa17a9e3d64bf736c6470
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
-License: GPL
+License: LGPL
 Description: Creates the PySide bindings source files from Qt headers
-Depends: qt4-mac-core-shlibs (>= 4.5.0), qt4-mac-gui-shlibs (>= 4.5.0), apiextractor-mac-py%type_pkg[python], generatorrunner-mac-py%type_pkg[python], python%type_pkg[python]
-BuildDepends: cmake (>= 2.6.0), python%type_pkg[python]-shlibs, pkgconfig, sphinx-py%type_pkg[python]
+Depends: qt4-mac-core-shlibs (>= 4.5.0), qt4-mac-gui-shlibs (>= 4.5.0), apiextractor-mac-py%type_pkg[python],  generatorrunner-mac-py%type_pkg[python]-shlibs, python%type_pkg[python], python%type_pkg[python]-shlibs
+BuildDepends: cmake (>= 2.6.0), pkgconfig, sphinx-py%type_pkg[python], generatorrunner-mac-py%type_pkg[python]
 # PatchFile: %n.patch
 # PatchFile-MD5: 
 
 CompileScript: <<
 #!/bin/sh -ev
- export PATH=%p/lib/qt4-%type_pkg[qt]/bin:$PATH  
+ export PATH=%p/lib/qt4-mac/bin:$PATH  
  %p/bin/cmake \
  --debug-output -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
  -DCMAKE_INSTALL_PREFIX:PATH=%p \
@@ -24,9 +24,9 @@ CompileScript: <<
  -DCMAKE_LIBRARY_PATH:PATH=%p/lib \
  -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING="" \
  -DCMAKE_OSX_SYSROOT:PATH="/" \
- .
+ CMakeLists.txt
 
 make
 <<
-InstallScript: make install
+InstallScript: make install DESTDIR=%d
  <<
