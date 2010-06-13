@@ -1,7 +1,7 @@
 Info2: <<
 Package: generatorrunner-mac-py%type_pkg[python]
 Version: 0.5.0
-Revision: 3
+Revision: 8
 Type: python (2.5 2.6)
 Source: http://www.pyside.org/files/generatorrunner-%v.tar.bz2
 Source-MD5: 7d1745521831c6d2a71f7b45d744246d
@@ -27,12 +27,17 @@ CompileScript: <<
  -DCMAKE_OSX_SYSROOT:PATH="/" \
  -DBUILD_SHARED_LIBS:BOOL=ON \
  -DCMAKE_INSTALL_PREFIX:PATH=%p \
- -DCMAKE_INSTALL_NAME_DIR:STRING=%p/lib/generatorrunner \
- -DVTK_USE_RPATH=ON \
+ -DCMAKE_INSTALL_NAME_DIR:STRING=%p/lib/ \
+ -DCMAKE_INSTALL_PREFIX:PATH=%p \
+ -DBUILD_SHARED_LIBS:BOOL=ON \
  -DCMAKE_BUILD_WITH_INSTALL_RPATH:BOOL=OFF \
  -DCMAKE_INSTALL_RPATH:STRING="${CMAKE_INSTALL_NAME_DIR}" \
  CMakeLists.txt
-
+ 
+# Hack for finding not-yet-installed dylibs during making.
+# Cmake's method via CMAKE_BUILD_WITH_INSTALL_RPATH=OFF is still 
+# half-baked; doesn't work for python modules
+#export DYLD_LIBRARY_PATH=`pwd`/bin
 make
 #-DVTK_INSTALL_LIB_DIR:STRING="/lib/generatorrunner" \
 <<
