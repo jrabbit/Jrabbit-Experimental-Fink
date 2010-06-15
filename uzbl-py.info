@@ -1,0 +1,26 @@
+Info2: <<
+Package: uzbl-py%type_pkg[python]
+Version: 0.0.0.git.20100403
+Revision: 1
+Type: python (2.5 2.6)
+Source: http://github.com/Dieterbe/uzbl/tarball/2010.04.03
+Source-MD5: 70487d59dd5a1e5a1eca36b976800128
+SourceRename: %n-%v.tar.gz
+SourceDirectory: Dieterbe-uzbl-ae15d25
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://www.uzbl.org/
+License: GPL
+Description: Lightweight browser along the UNIX philosophy
+Depends: dmenu, libsoup2.4.1-ssl-shlibs, webkit-1.0.2-shlibs, socat, zenity, gtk+2-shlibs, gtk+2, xclip, pango1-xft2-ft219, pygobject2-py%type_pkg[python], pygtk2-gtk-py%type_pkg[python], simplejson-py%type_pkg[python], system-perl
+BuildDepends: libsoup2.4.1-ssl, webkit-1.0.2, pkgconfig, gtk+2-dev, pango1-xft2-ft219-dev
+# PatchFile: %n.patch
+# PatchFile-MD5: 
+
+#ConfigureParams: -prefix=%p
+
+CompileScript: <<
+
+LDFLAGS="-lX11 -L/usr/X11R6/lib" make PREFIX=%p
+<<
+InstallScript: make install PREFIX=%p DESTDIR=%d
+ <<
