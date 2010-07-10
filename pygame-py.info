@@ -2,7 +2,6 @@ Info2: <<
 Package: pygame-py%type_pkg[python]
 Version: 1.9.1
 Revision: 1
-Distribution: 10.5, 10.6
 Type: python (2.5 2.6)
 BuildDepends: fink (>= 0.24.12), sdl, sdl-image, sdl-mixer, sdl-ttf, smpeg 
 Depends: python%type_pkg[python], sdl-shlibs, sdl-image-shlibs, sdl-mixer-shlibs, sdl-ttf-shlibs, smpeg-shlibs, pil-py%type_pkg[python], numeric-py%type_pkg[python]
