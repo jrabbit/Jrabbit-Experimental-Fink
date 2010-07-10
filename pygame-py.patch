@@ -37,8 +37,8 @@ Index: pygame-1.9.1release/config_darwin.py
      print ('Hunting dependencies...')
 -    incdirs = ['/usr/local/include','/opt/local/include']
 -    libdirs = ['/usr/local/lib','/opt/local/lib']
-+    incdirs = [localbase+'/include', localbase+'/include/SDL', localbase+'/include/smpeg']
-+    libdirs = [localbase+'/lib']
++    incdirs = ['/usr/include', localbase+'/include', localbase+'/include/SDL', localbase+'/include/smpeg']
++    libdirs = ['/usr/lib', localbase+'/lib']
      newconfig = []
      for d in DEPS:
          d.configure(incdirs, libdirs)
