@@ -4,7 +4,7 @@ Version: 1.9.1
 Revision: 1
 Type: python (2.5 2.6)
 BuildDepends: fink (>= 0.24.12), sdl, sdl-image, sdl-mixer, sdl-ttf, smpeg 
-Depends: python%type_pkg[python], sdl-shlibs, sdl-image-shlibs, sdl-mixer-shlibs, sdl-ttf-shlibs, smpeg-shlibs, pil-py%type_pkg[python], numeric-py%type_pkg[python]
+Depends: python%type_pkg[python], sdl-shlibs, sdl-image-shlibs, sdl-mixer-shlibs, sdl-ttf-shlibs, smpeg-shlibs, pil-py%type_pkg[python], numpy-py%type_pkg[python]
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 Source: http://www.pygame.org/ftp/pygame-%vrelease.tar.gz
 HomePage: http://www.pygame.org
