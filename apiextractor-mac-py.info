@@ -1,6 +1,6 @@
 Info2: <<
 Package: apiextractor-mac-py%type_pkg[python]
-Version: 0.6.0
+Version: 0.7.0
 Revision: 2
 Type: python (2.5 2.6)
 Source: http://www.pyside.org/files/apiextractor-%v.tar.bz2

@@ -12,7 +12,7 @@ License: LGPL
 Description: Python modules for writing games
 Source-MD5: 1c4cdc708d17c8250a2d78ef997222fc
 PatchFile: %{ni}.patch
-PatchFile-MD5: e04fbe3eca74fe71636a573c2756ebf6
+PatchFile-MD5: a90ade552306abb65c58dfb4c6d2dd1b
 #Thanks Macports ;) https://trac.macports.org/browser/trunk/dports/python/py25-game/files/patch-config_darwin.py.diff
 #perl -pi -e 's|_AIX|darwin|g' src/display.c
 SetCPPFLAGS: -I/usr/X11R6/include -framework CoreFoundation -framework cocoa

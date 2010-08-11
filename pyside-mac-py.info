@@ -1,6 +1,6 @@
 Info2: <<
 Package: pyside-mac-py%type_pkg[python]
-Version: 0.3.2
+Version: 0.4.0
 Revision: 1
 Type: python (2.5 2.6)
 Source: http://www.pyside.org/files/pyside-qt4.6+%v.tar.bz2

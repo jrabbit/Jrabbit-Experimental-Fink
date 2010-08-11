@@ -1,6 +1,6 @@
 Info2: <<
 Package: generatorrunner-mac-py%type_pkg[python]
-Version: 0.5.0
+Version: 0.6.0
 Revision: 8
 Type: python (2.5 2.6)
 Source: http://www.pyside.org/files/generatorrunner-%v.tar.bz2
