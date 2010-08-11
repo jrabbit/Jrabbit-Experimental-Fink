@@ -4,7 +4,7 @@ Version: 0.7.0
 Revision: 2
 Type: python (2.5 2.6)
 Source: http://www.pyside.org/files/apiextractor-%v.tar.bz2
-Source-MD5: 7bbd0df7c826eb7d158daaba1be5f55a
+Source-MD5: 1b28c39ba18286e86217969d0e62cc7a
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL

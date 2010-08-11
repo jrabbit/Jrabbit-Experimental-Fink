@@ -4,7 +4,7 @@ Version: 0.6.0
 Revision: 8
 Type: python (2.5 2.6)
 Source: http://www.pyside.org/files/generatorrunner-%v.tar.bz2
-Source-MD5: 7d1745521831c6d2a71f7b45d744246d
+Source-MD5: 94636980877defc9f3d018e901748446
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL

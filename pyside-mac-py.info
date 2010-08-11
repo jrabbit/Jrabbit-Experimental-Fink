@@ -4,7 +4,7 @@ Version: 0.4.0
 Revision: 1
 Type: python (2.5 2.6)
 Source: http://www.pyside.org/files/pyside-qt4.6+%v.tar.bz2
-Source-MD5: c7fb5e1c22443cdfaebdb3d0e432a4ae
+Source-MD5: 8b1ba0fa4f217401f9c8f0e6c62cde97
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL

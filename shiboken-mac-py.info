@@ -4,7 +4,7 @@ Version: 0.4.0
 Revision: 1
 Type: python (2.5 2.6)
 Source: http://www.pyside.org/files/shiboken-%v.tar.bz2
-Source-MD5: 802ecf28206aa17a9e3d64bf736c6470
+Source-MD5: 76510481065d6603fa74e1315fb75ed5
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL
