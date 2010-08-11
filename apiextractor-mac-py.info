@@ -36,7 +36,7 @@ make
 InstallScript: make install DESTDIR=%d
 SplitOff: <<
   Package: %N-shlibs
-  Files: lib/libapiextractor.0.6.0.dylib lib/libapiextractor.0.6.dylib
+  Files: lib/libapiextractor.0.7.0.dylib lib/libapiextractor.0.7.dylib
   DocFiles: COPYING
 <<
  <<
