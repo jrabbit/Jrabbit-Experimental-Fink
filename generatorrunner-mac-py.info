@@ -44,7 +44,7 @@ make
 InstallScript: make install DESTDIR=%d
 SplitOff: <<
   Package: %N-shlibs
-  Files: lib/libgenrunner.0.5.0.dylib lib/libgenrunner.0.5.dylib lib/generatorrunner
+  Files: lib/libgenrunner.0.6.0.dylib lib/libgenrunner.0.6.dylib lib/generatorrunner
   DocFiles: COPYING
 <<
  <<
