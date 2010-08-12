@@ -1,0 +1,20 @@
+Info2: <<
+Package: textflow-py%type_pkg[python]
+Version: 0.2.9
+Revision: 1
+Type: python (2.5 2.6 2.7)
+Depends: gnome-python2-py%type_pkg[python], gnome-python2-py%type_pkg[python]-vfsmodule, pygtk2-gtk-py%type_pkg[python]
+BuildDepends: fink (>= 0.24.12), pygtk2-gtk-py%type_pkg[python]-dev, gnome-python2-py%type_pkg[python]-dev,
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+Source: http://www.textflowproject.org/wp-content/uploads/2009/07/textflow_%v.tar.gz
+HomePage: http://www.textflowproject.org/
+License: GPL
+Description: Powerful and intuitive text editor for developers
+Source-MD5: 012d37b6b14932ef33de33db367da1b3
+CompileScript: <<
+ %p/bin/python%type_raw[python] setup.py build
+<<
+InstallScript: <<
+ %p/bin/python%type_raw[python] setup.py install --root=%d
+<<
+<<
