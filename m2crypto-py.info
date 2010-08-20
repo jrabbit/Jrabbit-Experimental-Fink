@@ -1,0 +1,16 @@
+Info2: <<
+Package: m2crypto-py%type_pkg[python]
+Version: 0.20.2
+Revision: 1
+Type: python (2.5 2.6 2.7)
+Source: http://pypi.python.org/packages/source/M/M2Crypto/M2Crypto-0.20.2.tar.gz
+Source-MD5: 6c24410410d6eb1920ea43f77a93613a
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://chandlerproject.org/Projects/MeTooCrypto
+License: BSD
+Description: A Python crypto and SSL toolkit
+Depends: setuptools-py%type_pkg[python], swig-shlibs, openssl098-shlibs
+BuildDepends: setuptools-py%type_pkg[python], fink (>= 0.24.12), swig, openssl098-dev
+CompileScript:openssl=%p %p/bin/python%type_raw[python] setup.py build
+InstallScript: %p/bin/python%type_raw[python] setup.py install --root %d
+ <<
