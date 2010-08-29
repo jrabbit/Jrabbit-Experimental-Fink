@@ -1,0 +1,35 @@
+# ./configure --without-liblzo2 --prefix-dir=/sw CFLAGS="-m32" LDFLAGS="-arch i386"
+Info2: <<
+Package: openttd
+Version: 1.0.3
+Revision: 1
+Source: http://binaries.openttd.org/releases/%v/openttd-%v-source.tar.bz2
+SourceDirectory: openttd-%v
+Source-MD5: cff60c624913a491ed3c91474e845722
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://www.openttd.org/en/
+License: GPL
+Description: Clone of the game Transport Tycoon Deluxe
+BuildDepends: fink (>= 0.24.12), freetype219, libpng3
+Depends: system-pkgconfig-libpng, freetype219-shlibs 
+#openttd-data
+CompileScript: <<
+if [ "%m" = "powerpc" ]; then archtype="-ppc" ; else archtype="-%m" ; fi
+if [ "%m" = "i386" ]; then CFLAGS="-m32"; fi
+#LDFLAGS="-arch i386"
+if [ "%m" = "x86_64" ]; then CFLAGS="-m64"; fi
+#LDFLAGS="-arch x86_64"
+./configure --without-liblzo2 --with-freetype=%p/bin/freetype-config --with-png=%p/bin/libpng-config --prefix-dir=%p
+make
+make bundle
+<<
+AppBundles: bundle/OpenTTD.app
+InstallScript: <<
+#make install DESTDIR=%d
+# install -d -m 755 %i/Applications/openTTD
+# install -d -m 755 %i/Applications/openTTD/OpenTTD.app
+# install -m 755 bundle/OpenTTD.app/* %i/Applications/openTTD/OpenTTD.app
+# install -m 755 bundle/* %i/Applications/openTTD
+<<
+DescPackaging:
+ <<

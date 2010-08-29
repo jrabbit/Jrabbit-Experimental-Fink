@@ -10,7 +10,7 @@ Source-MD5: ceb0ad034f3b565c560d74c37c97138b
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: https://anomos.info/wp
 License: GPL
-Description: Python Bittorrent client
+Description: Python decentralized p2p client and server
 Depends: gtk+2, pygtk2-gtk-py%type_pkg[python], pygobject2-py%type_pkg[python], setuptools-py%type_pkg[python], m2crypto-py%type_pkg[python]
 BuildDepends: libglade2, gtk+2-dev, pygobject2-py%type_pkg[python]-dev, pygobject2-py%type_pkg[python]-shlibs, pycairo-py%type_pkg[python]-dev, setuptools-py%type_pkg[python], fink (>= 0.24.12)
 CompileScript: %p/bin/python%type_raw[python] setup.py build
