@@ -1,10 +1,10 @@
 Info2: <<
 Package: shiboken-mac-py%type_pkg[python]
-Version: 0.4.0
+Version: 0.5.0
 Revision: 1
-Type: python (2.5 2.6)
+Type: python (2.5 2.6 2.7)
 Source: http://www.pyside.org/files/shiboken-%v.tar.bz2
-Source-MD5: 76510481065d6603fa74e1315fb75ed5
+Source-MD5: ca377b865b09aff2f2a035fc5eb950e8
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL

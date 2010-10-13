@@ -1,10 +1,10 @@
 Info2: <<
 Package: apiextractor-mac-py%type_pkg[python]
-Version: 0.7.0
+Version: 0.8.0
 Revision: 2
-Type: python (2.5 2.6)
+Type: python (2.5 2.6 2.7)
 Source: http://www.pyside.org/files/apiextractor-%v.tar.bz2
-Source-MD5: 1b28c39ba18286e86217969d0e62cc7a
+Source-MD5: 24c0f025ff7bf5c7b72a3721fddcaad5
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL

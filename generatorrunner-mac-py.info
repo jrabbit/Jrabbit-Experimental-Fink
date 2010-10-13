@@ -1,10 +1,10 @@
 Info2: <<
 Package: generatorrunner-mac-py%type_pkg[python]
-Version: 0.6.0
+Version: 0.6.1
 Revision: 8
-Type: python (2.5 2.6)
+Type: python (2.5 2.6 2.7)
 Source: http://www.pyside.org/files/generatorrunner-%v.tar.bz2
-Source-MD5: 94636980877defc9f3d018e901748446
+Source-MD5: 2f6c601bc30fd53adc7490ec1a2ff4cc
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL
