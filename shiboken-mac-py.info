@@ -9,7 +9,7 @@ Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL
 Description: Creates the PySide bindings source files from Qt headers
-Depends: qt4-mac-core-shlibs (>= 4.5.0), qt4-mac-gui-shlibs (>= 4.5.0),  generatorrunner-mac-py%type_pkg[python]-shlibs, python%type_pkg[python], python%type_pkg[python]-shlibs
+Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0),  generatorrunner-mac-py%type_pkg[python]-shlibs, python%type_pkg[python], python%type_pkg[python]-shlibs
 BuildDepends: cmake (>= 2.6.0), pkgconfig, sphinx-py%type_pkg[python], generatorrunner-mac-py%type_pkg[python], apiextractor-mac-py%type_pkg[python]
 # PatchFile: %n.patch
 # PatchFile-MD5: 

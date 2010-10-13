@@ -10,7 +10,7 @@ HomePage: http://www.pyside.org/
 License: LGPL
 BuildDependsOnly: True
 Description: Controls PySide bindings generation
-Depends: qt4-mac-core-shlibs (>= 4.5.0), qt4-mac-gui-shlibs (>= 4.5.0), apiextractor-mac-py%type_pkg[python]-shlibs, python%type_pkg[python], libxslt-shlibs
+Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0), apiextractor-mac-py%type_pkg[python]-shlibs, python%type_pkg[python], libxslt-shlibs
 BuildDepends: cmake (>= 2.6.0), python%type_pkg[python]-shlibs, pkgconfig, sphinx-py%type_pkg[python], libxslt
 # PatchFile: %n.patch
 # PatchFile-MD5: 

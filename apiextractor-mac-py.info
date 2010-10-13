@@ -10,7 +10,7 @@ HomePage: http://www.pyside.org/
 License: LGPL
 BuildDependsOnly: True
 Description: Parses QT headers for PySide
-Depends: qt4-mac-core-shlibs (>= 4.5.0), qt4-mac-gui-shlibs (>= 4.5.0), python%type_pkg[python], libxml2-shlibs, libxslt-shlibs
+Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0), python%type_pkg[python], libxml2-shlibs, libxslt-shlibs
 BuildDepends: cmake (>= 2.6.0), python%type_pkg[python]-shlibs, libxml2, libxslt, pkgconfig, sphinx-py%type_pkg[python]
 CompileScript: <<
 #!/bin/sh -ev
