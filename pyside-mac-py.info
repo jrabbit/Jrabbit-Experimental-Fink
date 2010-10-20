@@ -34,7 +34,7 @@ CompileScript: <<
  -DBUILD_SHARED_LIBS:BOOL=ON \
  -DCMAKE_BUILD_WITH_INSTALL_RPATH:BOOL=OFF \
  -DCMAKE_INSTALL_RPATH:STRING="${CMAKE_INSTALL_NAME_DIR}" \
- -DALTERNATIVE_QT_INCLUDE_DIR=%p/lib/qt4-mac/lib/ \
+ -DALTERNATIVE_QT_INCLUDE_DIR=%p/lib/qt4-mac/lib \
  -DSITE_PACKAGE=%p/lib/python%type_raw[python]/site-packages \
  CMakeLists.txt
 
