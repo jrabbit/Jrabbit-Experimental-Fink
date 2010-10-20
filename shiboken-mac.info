@@ -8,8 +8,9 @@ Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL
 Description: Creates the PySide source files from Qt
+BuildDependsOnly: True
 Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0),  generatorrunner-mac-shlibs
-BuildDepends: cmake (>= 2.6.0), pkgconfig, generatorrunner-mac, apiextractor-mac
+BuildDepends: cmake (>= 2.6.0), pkgconfig, generatorrunner-mac, apiextractor-mac, fink (>= 0.28)
 # PatchFile: %n.patch
 # PatchFile-MD5: 
 
@@ -35,4 +36,22 @@ CompileScript: <<
 make
 <<
 InstallScript: make install DESTDIR=%d
+
+SplitOff: <<
+  Package: %N-shlibs
+  Files: <<
+  lib/libshiboken.*.dylib
+  lib/shiboken_generator.*.dylib
+  <<
+  Shlibs:<<
+  !%p/lib/shiboken_generator.dylib
+  !%p/lib/libshiboken.0.5.dylib
+  <<
+  DocFiles: COPYING
+<<
+SplitOff2: <<
+  Package: %N-bin
+  Files: %p/bin/shiboken
+  BuildDependsOnly: False
+  
  <<
