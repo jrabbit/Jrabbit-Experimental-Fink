@@ -41,11 +41,11 @@ SplitOff: <<
   Package: %N-shlibs
   Files: <<
   lib/libshiboken.*.dylib
-  lib/shiboken_generator.*.dylib
+  lib/generatorrunner/shiboken_generator.dylib
   <<
   Shlibs:<<
-  !%p/lib/shiboken_generator.dylib
   !%p/lib/libshiboken.0.5.dylib
+  !%p/lib/shiboken_generator.dylib
   <<
   DocFiles: COPYING
 <<
