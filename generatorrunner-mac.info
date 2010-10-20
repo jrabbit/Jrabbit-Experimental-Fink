@@ -1,8 +1,7 @@
 Info2: <<
-Package: generatorrunner-mac-py%type_pkg[python]
+Package: generatorrunner-mac
 Version: 0.6.1
-Revision: 8
-Type: python (2.5 2.6 2.7)
+Revision: 9
 Source: http://www.pyside.org/files/generatorrunner-%v.tar.bz2
 Source-MD5: 2f6c601bc30fd53adc7490ec1a2ff4cc
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
@@ -10,8 +9,8 @@ HomePage: http://www.pyside.org/
 License: LGPL
 BuildDependsOnly: True
 Description: Controls PySide bindings generation
-Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0), apiextractor-mac-py%type_pkg[python]-shlibs, python%type_pkg[python], libxslt-shlibs
-BuildDepends: cmake (>= 2.6.0), python%type_pkg[python]-shlibs, pkgconfig, sphinx-py%type_pkg[python], libxslt
+Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0), apiextractor-mac-shlibs, libxslt-shlibs
+BuildDepends: cmake (>= 2.6.0), pkgconfig, libxslt, fink (>= 0.28)
 # PatchFile: %n.patch
 # PatchFile-MD5: 
 DocFiles: COPYING ChangeLog
@@ -27,7 +26,7 @@ CompileScript: <<
  -DCMAKE_OSX_SYSROOT:PATH="/" \
  -DBUILD_SHARED_LIBS:BOOL=ON \
  -DCMAKE_INSTALL_PREFIX:PATH=%p \
- -DCMAKE_INSTALL_NAME_DIR:STRING=%p/lib/ \
+ -DCMAKE_INSTALL_NAME_DIR:STRING=%p/lib \
  -DCMAKE_INSTALL_PREFIX:PATH=%p \
  -DBUILD_SHARED_LIBS:BOOL=ON \
  -DCMAKE_BUILD_WITH_INSTALL_RPATH:BOOL=OFF \
@@ -44,7 +43,12 @@ make
 InstallScript: make install DESTDIR=%d
 SplitOff: <<
   Package: %N-shlibs
-  Files: lib/libgenrunner.0.6.0.dylib lib/libgenrunner.0.6.dylib lib/generatorrunner
+  Files: lib/libgenrunner.0.6.1.dylib lib/libgenrunner.0.6.dylib lib/generatorrunner
+  Shlibs: <<
+  !%p/lib/libgenrunner.0.6.dylib
+  !%p/lib/qtdoc_generator.dylib
+  
+  <<
   DocFiles: COPYING
 <<
  <<

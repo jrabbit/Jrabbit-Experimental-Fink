@@ -1,7 +1,7 @@
 Info2: <<
 Package: pyside-mac-py%type_pkg[python]
 Version: 0.4.1
-Revision: 1
+Revision: 2
 Type: python (2.5 2.6 2.7)
 Source: http://www.pyside.org/files/pyside-qt4.6+%v.tar.bz2
 Source-MD5: dbc34efa904458f792df128df738d554
@@ -29,7 +29,7 @@ CompileScript: <<
  -DCMAKE_OSX_SYSROOT:PATH="/" \
  -DBUILD_SHARED_LIBS:BOOL=ON \
  -DCMAKE_INSTALL_PREFIX:PATH=%p \
- -DCMAKE_INSTALL_NAME_DIR:STRING=%p/lib/ \
+ -DCMAKE_INSTALL_NAME_DIR:STRING=%p/lib \
  -DCMAKE_INSTALL_PREFIX:PATH=%p \
  -DBUILD_SHARED_LIBS:BOOL=ON \
  -DCMAKE_BUILD_WITH_INSTALL_RPATH:BOOL=OFF \

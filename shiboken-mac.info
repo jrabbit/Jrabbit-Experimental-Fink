@@ -1,16 +1,15 @@
 Info2: <<
-Package: shiboken-mac-py%type_pkg[python]
+Package: shiboken-mac
 Version: 0.5.0
 Revision: 1
-Type: python (2.5 2.6 2.7)
 Source: http://www.pyside.org/files/shiboken-%v.tar.bz2
 Source-MD5: ca377b865b09aff2f2a035fc5eb950e8
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL
-Description: Creates the PySide bindings source files from Qt headers
-Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0),  generatorrunner-mac-py%type_pkg[python]-shlibs, python%type_pkg[python], python%type_pkg[python]-shlibs
-BuildDepends: cmake (>= 2.6.0), pkgconfig, sphinx-py%type_pkg[python], generatorrunner-mac-py%type_pkg[python], apiextractor-mac-py%type_pkg[python]
+Description: Creates the PySide source files from Qt
+Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0),  generatorrunner-mac-shlibs
+BuildDepends: cmake (>= 2.6.0), pkgconfig, generatorrunner-mac, apiextractor-mac
 # PatchFile: %n.patch
 # PatchFile-MD5: 
 
@@ -24,6 +23,13 @@ CompileScript: <<
  -DCMAKE_LIBRARY_PATH:PATH=%p/lib \
  -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING="" \
  -DCMAKE_OSX_SYSROOT:PATH="/" \
+ -DBUILD_SHARED_LIBS:BOOL=ON \
+ -DCMAKE_INSTALL_PREFIX:PATH=%p \
+ -DCMAKE_INSTALL_NAME_DIR:STRING=%p/lib \
+ -DCMAKE_INSTALL_PREFIX:PATH=%p \
+ -DBUILD_SHARED_LIBS:BOOL=ON \
+ -DCMAKE_BUILD_WITH_INSTALL_RPATH:BOOL=OFF \
+ -DCMAKE_INSTALL_RPATH:STRING="${CMAKE_INSTALL_NAME_DIR}" \
  CMakeLists.txt
 
 make

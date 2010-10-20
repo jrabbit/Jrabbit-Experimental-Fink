@@ -1,8 +1,7 @@
 Info2: <<
-Package: apiextractor-mac-py%type_pkg[python]
+Package: apiextractor-mac
 Version: 0.8.0
-Revision: 2
-Type: python (2.5 2.6 2.7)
+Revision: 3
 Source: http://www.pyside.org/files/apiextractor-%v.tar.bz2
 Source-MD5: 24c0f025ff7bf5c7b72a3721fddcaad5
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
@@ -10,8 +9,8 @@ HomePage: http://www.pyside.org/
 License: LGPL
 BuildDependsOnly: True
 Description: Parses QT headers for PySide
-Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0), python%type_pkg[python], libxml2-shlibs, libxslt-shlibs
-BuildDepends: cmake (>= 2.6.0), python%type_pkg[python]-shlibs, libxml2, libxslt, pkgconfig, sphinx-py%type_pkg[python]
+Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0), libxml2-shlibs, libxslt-shlibs
+BuildDepends: cmake (>= 2.6.0), libxml2, libxslt, pkgconfig, fink (>= 0.28)
 CompileScript: <<
 #!/bin/sh -ev
  export PATH=%p/lib/qt4-mac/bin:$PATH  
@@ -24,19 +23,25 @@ CompileScript: <<
  -DCMAKE_OSX_SYSROOT:PATH="/" \
  -DBUILD_SHARED_LIBS:BOOL=ON \
  -DCMAKE_INSTALL_PREFIX:PATH=%p \
- -DCMAKE_INSTALL_NAME_DIR:STRING=%p/lib/ \
+ -DCMAKE_INSTALL_NAME_DIR:STRING=%p/lib \
  -DCMAKE_INSTALL_PREFIX:PATH=%p \
  -DBUILD_SHARED_LIBS:BOOL=ON \
  -DCMAKE_BUILD_WITH_INSTALL_RPATH:BOOL=OFF \
  -DCMAKE_INSTALL_RPATH:STRING="${CMAKE_INSTALL_NAME_DIR}" \
  CMakeLists.txt
-
+#Former options
+# 
 make
 <<
 InstallScript: make install DESTDIR=%d
 SplitOff: <<
   Package: %N-shlibs
-  Files: lib/libapiextractor.0.7.0.dylib lib/libapiextractor.0.7.dylib
+  Files: lib/libapiextractor.*.dylib
+  Shlibs:<<
+  !%p/lib/libapiextractor.0.8.dylib
+  !%p/lib/libapiextractor.0.8.0.dylib
+  
+  <<
   DocFiles: COPYING
 <<
  <<
