@@ -9,8 +9,8 @@ Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL
 Description: Python bindings for QT4
-Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0), shiboken-mac-py%type_pkg[python],  generatorrunner-mac-py%type_pkg[python]-shlibs
-BuildDepends: cmake (>= 2.6.0), pkgconfig,  generatorrunner-mac-py%type_pkg[python]
+Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0), shiboken-mac,  generatorrunner-mac-shlibs
+BuildDepends: cmake (>= 2.6.0), pkgconfig,  generatorrunner-mac
 #shiboken-mac-py%type_pkg[python]-shlibs, generatorrunner-mac-py%type_pkg[python]-shlibs
 # PatchFile: %n.patch
 # PatchFile-MD5: 
