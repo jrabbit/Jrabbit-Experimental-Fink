@@ -9,8 +9,8 @@ Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL
 Description: Python bindings for QT4
-Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0), shiboken-mac,  generatorrunner-mac-shlibs
-BuildDepends: cmake (>= 2.6.0), pkgconfig,  generatorrunner-mac
+Depends: qt4-mac-core-shlibs (>= 4.6.0), qt4-mac-gui-shlibs (>= 4.6.0), shiboken-mac-bin,  generatorrunner-mac-shlibs
+BuildDepends: cmake (>= 2.6.0), pkgconfig,  generatorrunner-mac, shiboken-mac
 #shiboken-mac-py%type_pkg[python]-shlibs, generatorrunner-mac-py%type_pkg[python]-shlibs
 # PatchFile: %n.patch
 # PatchFile-MD5: 
@@ -34,7 +34,7 @@ CompileScript: <<
  -DBUILD_SHARED_LIBS:BOOL=ON \
  -DCMAKE_BUILD_WITH_INSTALL_RPATH:BOOL=OFF \
  -DCMAKE_INSTALL_RPATH:STRING="${CMAKE_INSTALL_NAME_DIR}" \
- -DALTERNATIVE_QT_INCLUDE_DIR=%p/lib/qt4-mac/include/ \
+ -DALTERNATIVE_QT_INCLUDE_DIR=%p/lib/qt4-mac/lib/ \
  -DSITE_PACKAGE=%p/lib/python%type_raw[python]/site-packages \
  CMakeLists.txt
 
