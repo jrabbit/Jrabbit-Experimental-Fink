@@ -1,9 +1,9 @@
 Info2: <<
 Package: apiextractor-mac
-Version: 0.8.0
-Revision: 3
+Version: 0.8.1
+Revision: 1
 Source: http://www.pyside.org/files/apiextractor-%v.tar.bz2
-Source-MD5: 24c0f025ff7bf5c7b72a3721fddcaad5
+Source-MD5: 77ab7e88a809ccb91ec9cdd6cddd6087
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL

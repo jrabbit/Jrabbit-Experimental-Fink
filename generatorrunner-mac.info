@@ -1,9 +1,9 @@
 Info2: <<
 Package: generatorrunner-mac
-Version: 0.6.1
-Revision: 9
+Version: 0.6.2
+Revision: 1
 Source: http://www.pyside.org/files/generatorrunner-%v.tar.bz2
-Source-MD5: 2f6c601bc30fd53adc7490ec1a2ff4cc
+Source-MD5: d4e51907a3af33f5b93b2600aea5f8a6
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL

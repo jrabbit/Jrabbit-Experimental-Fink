@@ -1,9 +1,9 @@
 Info2: <<
 Package: shiboken-mac
-Version: 0.5.0
+Version: 0.5.1
 Revision: 1
 Source: http://www.pyside.org/files/shiboken-%v.tar.bz2
-Source-MD5: ca377b865b09aff2f2a035fc5eb950e8
+Source-MD5: 57e57ce6397c0047d08cf485b11b6011
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL
@@ -54,4 +54,5 @@ SplitOff2: <<
   Files: %p/bin/shiboken
   BuildDependsOnly: False
   
+ <<
  <<
