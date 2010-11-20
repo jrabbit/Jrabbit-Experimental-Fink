@@ -1,0 +1,24 @@
+Info2: <<
+Package: gunicorn
+Version: 0.11.2
+Revision: 1
+Type: python (2.7)
+Source: https://github.com/benoitc/gunicorn/tarball/%v
+Source-MD5: d4fe4d07e7493a3fee4b1550e0cd86d4
+SourceRename: %n-%v.tar.gz
+SourceDirectory: benoitc-gunicorn-e7938fa
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://gunicorn.org/
+License: BSD
+Description: Python WSGI HTTP Server for UNIX
+Depends: setuptools-py%type_pkg[python]
+BuildDepends: setuptools-py%type_pkg[python], fink (>= 0.24.12)
+Suggests: django-py%type_pkg[python]
+# PatchFile: %n.patch
+# PatchFile-MD5: 
+
+#ConfigureParams: -prefix=%p
+
+CompileScript: %p/bin/python%type_raw[python] setup.py build
+InstallScript: %p/bin/python%type_raw[python] setup.py install --root %d
+ <<
