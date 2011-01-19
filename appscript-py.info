@@ -4,8 +4,8 @@ Package: appscript-py%type_pkg[python]
 Version: 0.22.0
 Revision: 1
 Maintainer: Tristan Thiede <fink@thetiredsaint.com>
-Type: python (2.5, 2.6, 2.7)
-Depends: python%type_pkg[python], htmltemplate-py%type_pkg[python]
+Type: python (2.5 2.6 2.7)
+Depends: python%type_pkg[python]
 BuildDepends: setuptools-py%type_pkg[python]
 Source: http://pypi.python.org/packages/source/a/appscript/appscript-%v.tar.gz
 Source-MD5: da82d98d613c0f7d907ca128ac4bac68
@@ -16,6 +16,7 @@ InstallScript: <<
 PreInstScript: <<
   echo "Cleaning up files from an older installation, if present..."
   update-alternatives --remove-all osadict
+  update-alternatives --remove-all osascangui
 <<
 
 DocFiles: README appscript_2x/doc appscript_2x/sample
@@ -40,7 +41,7 @@ Appscript provides:
   o  a clean, object-oriented-like syntax
 <<
 DescPackaging: <<
-Uses update-alternatives to handle multiple installed versions of osascangui (though currently not possible).
+Uses update-alternatives to remove older unversioned binaries.
 <<
 License: OSI-Approved
 Homepage: http://appscript.sourceforge.net/
