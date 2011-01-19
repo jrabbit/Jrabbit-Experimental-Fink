@@ -4,7 +4,7 @@ Package: appscript-py%type_pkg[python]
 Version: 0.22.0
 Revision: 1
 Maintainer: Tristan Thiede <fink@thetiredsaint.com>
-Type: python (2.5 2.6 2.7)
+Type: python (2.5 2.6 2.7 3.1)
 Depends: python%type_pkg[python]
 BuildDepends: setuptools-py%type_pkg[python]
 Source: http://pypi.python.org/packages/source/a/appscript/appscript-%v.tar.gz
@@ -12,6 +12,15 @@ Source-MD5: da82d98d613c0f7d907ca128ac4bac68
 CompileScript: %p/bin/python%type_raw[python] setup.py build
 InstallScript: <<
   %p/bin/python%type_raw[python] setup.py install --root %d
+  mkdir -p %i/share/doc/%N
+  if [ "%type_pkg[python]" -ge "30" ]; then
+      cp -r appscript_3x/sample %i/share/doc/%N
+      cp -r appscript_3x/doc %i/share/doc/%N
+  fi
+  if [ "%type_pkg[python]" -le "30" ]; then
+      cp -r appscript_2x/sample %i/share/doc/%N
+      cp -r appscript_2x/doc %i/share/doc/%N
+  fi
 <<
 PreInstScript: <<
   echo "Cleaning up files from an older installation, if present..."
@@ -19,7 +28,7 @@ PreInstScript: <<
   update-alternatives --remove-all osascangui
 <<
 
-DocFiles: README appscript_2x/doc appscript_2x/sample
+DocFiles: README
 Description: High level Apple event bridge for Python
 DescDetail: <<
 AppScript is a user-friendly Apple event bridge that allows you to control
@@ -45,5 +54,6 @@ Uses update-alternatives to remove older unversioned binaries.
 <<
 License: OSI-Approved
 Homepage: http://appscript.sourceforge.net/
+
 
 <<
