@@ -11,16 +11,19 @@ Source: http://pypi.python.org/packages/source/a/appscript/appscript-%v.tar.gz
 Source-MD5: da82d98d613c0f7d907ca128ac4bac68
 CompileScript: %p/bin/python%type_raw[python] setup.py build
 InstallScript: <<
-  %p/bin/python%type_raw[python] setup.py install --root %d
-  mkdir -p %i/share/doc/%N
-  if [ "%type_pkg[python]" -ge "30" ]; then
-      cp -r appscript_3x/sample %i/share/doc/%N
-      cp -r appscript_3x/doc %i/share/doc/%N
-  fi
-  if [ "%type_pkg[python]" -le "30" ]; then
-      cp -r appscript_2x/sample %i/share/doc/%N
-      cp -r appscript_2x/doc %i/share/doc/%N
-  fi
+    #!/bin/bash -ev
+    %p/bin/python%type_raw[python] setup.py install --root %d
+    mkdir -p %i/share/doc/%N
+    if [ "%type_pkg[python]" -ge "30" ]; then
+        cp -r appscript_3x/sample %i/share/doc/%N
+        cp -r appscript_3x/doc %i/share/doc/%N
+    fi
+
+    if [ "%type_pkg[python]" -le "30" ]; then
+            cp -r appscript_2x/sample %i/share/doc/%N
+        cp -r appscript_2x/doc %i/share/doc/%N
+    fi
+
 <<
 PreInstScript: <<
   echo "Cleaning up files from an older installation, if present..."
