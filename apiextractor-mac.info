@@ -1,9 +1,9 @@
 Info2: <<
 Package: apiextractor-mac
-Version: 0.8.1
+Version: 0.9.3
 Revision: 1
 Source: http://www.pyside.org/files/apiextractor-%v.tar.bz2
-Source-MD5: 77ab7e88a809ccb91ec9cdd6cddd6087
+Source-MD5: 3a8b00c65628cb24a12fb68c2871a94f
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL
@@ -38,8 +38,8 @@ SplitOff: <<
   Package: %N-shlibs
   Files: lib/libapiextractor.*.dylib
   Shlibs:<<
-  !%p/lib/libapiextractor.0.8.dylib
-  !%p/lib/libapiextractor.0.8.0.dylib
+  !%p/lib/libapiextractor.0.9.dylib
+  !%p/lib/libapiextractor.0.9.3.dylib
   
   <<
   DocFiles: COPYING

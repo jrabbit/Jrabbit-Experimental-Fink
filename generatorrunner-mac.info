@@ -1,9 +1,9 @@
 Info2: <<
 Package: generatorrunner-mac
-Version: 0.6.2
+Version: 0.6.4
 Revision: 1
 Source: http://www.pyside.org/files/generatorrunner-%v.tar.bz2
-Source-MD5: d4e51907a3af33f5b93b2600aea5f8a6
+Source-MD5: e5ec44a58b07c16782f8fa4c9cb1d517
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL
@@ -43,7 +43,7 @@ make
 InstallScript: make install DESTDIR=%d
 SplitOff: <<
   Package: %N-shlibs
-  Files: lib/libgenrunner.0.6.1.dylib lib/libgenrunner.0.6.dylib lib/generatorrunner
+  Files: lib/libgenrunner.0.6.4.dylib lib/libgenrunner.0.6.dylib lib/generatorrunner
   Shlibs: <<
   !%p/lib/libgenrunner.0.6.dylib
   !%p/lib/qtdoc_generator.dylib

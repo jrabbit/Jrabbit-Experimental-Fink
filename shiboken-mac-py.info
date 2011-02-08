@@ -1,9 +1,10 @@
 Info2: <<
-Package: shiboken-mac
-Version: 0.5.1
+Package: shiboken-mac-py%type_pkg[python]
+Version: 1.0.0.beta4
 Revision: 1
-Source: http://www.pyside.org/files/shiboken-%v.tar.bz2
-Source-MD5: 57e57ce6397c0047d08cf485b11b6011
+Type: python (2.5 2.6 2.7)
+Source: http://www.pyside.org/files/shiboken-1.0.0~beta4.tar.bz2
+Source-MD5: f4856676ac59239084f5e2f8d432b4c9
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.pyside.org/
 License: LGPL
@@ -31,7 +32,17 @@ CompileScript: <<
  -DBUILD_SHARED_LIBS:BOOL=ON \
  -DCMAKE_BUILD_WITH_INSTALL_RPATH:BOOL=OFF \
  -DCMAKE_INSTALL_RPATH:STRING="${CMAKE_INSTALL_NAME_DIR}" \
+ -DCMAKE_MODULE_PATH=%p/share/cmake-2.8/Modules \
+ -DSITE_PACKAGE=%p/lib/python%type_raw[python]/site-packages \
+ -DCMAKE_MODULE_PATH=%p/share/cmake-2.8/Modules \
+ -DPYTHON_EXECUTABLE=%p/bin/python%type_raw[python] \
+ -DPYTHON_INCLUDE_DIR=%p/include/python%type_raw[python] \
+ -DPYTHON_LIBRARIES=%p/lib/python%type_raw[python]/config/libpython%type_raw[python].a \
+ -DPYTHONLIBS_FOUND:BOOL=ON \
  CMakeLists.txt
+
+# Python options:
+
 
 make
 <<
@@ -40,11 +51,13 @@ InstallScript: make install DESTDIR=%d
 SplitOff: <<
   Package: %N-shlibs
   Files: <<
-  lib/libshiboken.*.dylib
+  lib/libshiboken-python*.dylib
   lib/generatorrunner/shiboken_generator.dylib
   <<
   Shlibs:<<
-  !%p/lib/libshiboken.0.5.dylib
+  !%p/lib/libshiboken-python.%type_raw[python].1.0.0.dylib
+  !%p/lib/libshiboken-python.%type_raw[python].1.0.dylib
+  !%p/lib/libshiboken-python.%type_raw[python].dylib
   !%p/lib/shiboken_generator.dylib
   <<
   DocFiles: COPYING
