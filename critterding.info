@@ -1,24 +1,17 @@
 Info2: <<
 Package: critterding
-Version: 1.0.11
+Version: 1.0.12
 Revision: 1
-Source: http://downloads.sourceforge.net/project/critterding/critterding/sources/critterding-beta11.tar.bz2
-Source-MD5: 4076416c45d7c5dc8ca51bda2c042a17
+Source: http://downloads.sourceforge.net/project/critterding/critterding/sources/critterding-beta12.1.tar.bz2
+Source-MD5: 29e9848d76ede1e743e05ab7b23082ba
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://critterding.sourceforge.net/
 License: GPL
 Description: Genetic evolution using simulated "critters"
-PatchFile: %n.patch
-PatchFile-MD5: 013d854cd40a647510be2eeb3409db94
-# Thanks to manwithgrenade from aur.archlinux.org
 BuildDepends: fink (>= 0.24.12), freetype219, sdl, autoconf2.6
-Depends: freetype219-shlibs, sdl-shlibs
-Conflicts: libftgl1, critterding-telepathy
-Replaces: critterding-telepathy
-BuildConflicts: libftgl1, libftgl1-shlibs
-ConfigureParams: --x-libraries=/usr/X11R6/lib --x-includes=/usr/X11R6/include CPPFLAGS="-I%p/include/freetype2 -I%p/include/ -I/usr/X11R6/include -I%p/include/SDL " LDFLAGS="-L/usr/X11R6/lib  `sdl-config --libs` -lGL `freetype-config --libs` -Wl,-framework,GLUT -Wl,-framework,OpenGL -lobjc" CFLAGS="-arch $archtype" CXXFLAGS="-arch $archtype" LIBS="-L/usr/X11R6/lib `sdl-config --libs` -lGL `freetype-config --libs` -Wl,-framework,GLUT -Wl,-framework,OpenGL -lobjc"
+Depends: freetype219-shlibs, sdl-shlibs, libftgl1
+ConfigureParams: --x-libraries=/usr/X11R6/lib --x-includes=/usr/X11R6/include CPPFLAGS="-I%p/include/freetype2 -I%p/include/ -I/usr/X11R6/include -I%p/include/SDL " LDFLAGS="-L/usr/X11R6/lib  `sdl-config --libs` -lGL `freetype-config --libs` -Wl,-framework,GLUT -Wl,-framework,OpenGL -lobjc" LIBS="-L/usr/X11R6/lib `sdl-config --libs` -lGL `freetype-config --libs` -Wl,-framework,GLUT -Wl,-framework,OpenGL -lobjc"
 CompileScript: <<
-if [ "%m" = "powerpc" ]; then archtype="-ppc" ; else archtype="-%m" ; fi
 autoreconf -fi
 ./configure %c
 make
