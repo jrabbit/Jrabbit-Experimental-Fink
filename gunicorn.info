@@ -14,11 +14,7 @@ Description: Python WSGI HTTP Server for UNIX
 Depends: python%type_pkg[python]
 BuildDepends: distribute-py%type_pkg[python], fink (>= 0.24.12)
 Suggests: django-py%type_pkg[python]
-DocFiles: LICENSE, NOTICE, README.rst, THANKS
-# PatchFile: %n.patch
-# PatchFile-MD5: 
-
-#ConfigureParams: -prefix=%p
+DocFiles: LICENSE NOTICE README.rst THANKS
 
 CompileScript: %p/bin/python%type_raw[python] setup.py build
 InstallScript: %p/bin/python%type_raw[python] setup.py install --root %d
