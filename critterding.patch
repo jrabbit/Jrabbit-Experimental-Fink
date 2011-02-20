@@ -1,19 +1,28 @@
---- critterding-beta11/src/gui/textprinter.cpp	2009-10-22 14:34:05.532300821 +0600
-+++ critterding-beta11/src/gui/textprinter.cpp	2009-10-22 14:34:38.668966396 +0600
-@@ -153,14 +153,14 @@
- 	
+diff --git a/src/gl/glwindow.cpp b/src/gl/glwindow.cpp
+index c8506ac..8165a8e 100644
+--- a/src/gl/glwindow.cpp
++++ b/src/gl/glwindow.cpp
+@@ -47,7 +47,7 @@ void GLWindow::create(const char* title, int width, int height)
+ // 	SDL_WM_SetIcon(SDL_LoadBMP("other files/critterding icon.png"), 0);
+ // 	SDL_WM_SetIcon(SDL_LoadBMP("other files/cd.bmp"), 0);
+ 	string pixmappath = Settings::Instance()->binarypath;
+-	pixmappath.append( "../share/critterding/pixmaps/cd.bmp" );
++	pixmappath.append( "@FINKPREFIX@/share/critterding/pixmaps/cd.bmp" );
+ 	SDL_WM_SetIcon(SDL_LoadBMP(pixmappath.c_str()), 0);
+ // 	SDL_WM_SetIcon(SDL_LoadBMP("/projects/lessons/lesson20/data/image2.bmp"), 0);
+ 
+diff --git a/src/gui/textprinter.cpp b/src/gui/textprinter.cpp
+index eec8e7c..f631492 100644
+--- a/src/gui/textprinter.cpp
++++ b/src/gui/textprinter.cpp
+@@ -185,8 +185,8 @@ void Textprinter::setUpFonts()
  	char const *fontFilePath;
- 	//fontFilePath = "fonts/helvetica_3.ttf";
--	fontFilePath = "fonts/verdana.ttf";
-+	fontFilePath = "/Library/Fonts/Verdana.ttf";
  
- 	// Allocate an array to hold all fonts
- 	fonts = new FTFont *[1];
+ 	string fontpath = Settings::Instance()->binarypath;
+-	string defaultf = "../share/critterding/font.ttf";
+-	string systemf = "/usr/share/fonts/TTF/DejaVuSans.ttf";
++	string defaultf = "@FINKPREFIX@/share/critterding/font.ttf";
++	string systemf = "/Library/Fonts/Verdana.ttf";
  
- 	if ( !file.exists(fontFilePath) )
- 	{
--		fontFilePath = "../fonts/verdana.ttf";
-+		fontFilePath = "/Library/Fonts/Verdana.ttf";
- 		if ( !file.exists(fontFilePath) )
- 		{
- 			cerr << "Count not find font " << fontFilePath << endl;
+ 	string usepath = fontpath;
+ 	usepath.append(defaultf);
