@@ -1,14 +1,14 @@
 Info2: <<
 
 Package: appscript-py%type_pkg[python]
-Version: 0.22.0
+Version: 1.0.0
 Revision: 1
 Maintainer: Tristan Thiede <fink@thetiredsaint.com>
 Type: python (2.5 2.6 2.7 3.1)
 Depends: python%type_pkg[python]
 BuildDepends: setuptools-py%type_pkg[python]
 Source: http://pypi.python.org/packages/source/a/appscript/appscript-%v.tar.gz
-Source-MD5: da82d98d613c0f7d907ca128ac4bac68
+Source-MD5: 6619b637037ea0f391f45870c13ae38a
 CompileScript: %p/bin/python%type_raw[python] setup.py build
 InstallScript: <<
     #!/bin/bash -ev
