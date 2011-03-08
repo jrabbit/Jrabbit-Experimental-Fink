@@ -1,0 +1,19 @@
+Info2: <<
+Package: nodejs
+Version: 0.4.2
+Revision: 1
+Architecture: i386, x86_64
+#Must be intel. v8 doesn't support ppc
+Source: http://nodejs.org/dist/node-v%v.tar.gz
+Source-MD5: 9e9e791e125f6a601ebc663dc99c72a8
+Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
+HomePage: http://nodejs.org/
+License: MIT
+Description: Evented I/O for v8 javascript 
+# PatchFile: %n.patch
+# PatchFile-MD5: 
+Build-Depends: system-openssl-dev
+Depends: python27, python
+BuildConflicts: ccache-default
+InstallScript: make install DESTDIR=%d
+ <<	
