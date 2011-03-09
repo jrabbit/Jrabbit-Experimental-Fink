@@ -13,7 +13,7 @@ Description: Evented I/O for v8 javascript
 # PatchFile: %n.patch
 # PatchFile-MD5: 
 Build-Depends: system-openssl-dev
-Depends: python27, python
 BuildConflicts: ccache-default
 InstallScript: make install DESTDIR=%d
+DescUsage: Add /sw/lib/node to your NODE_PATH in your .profile for libraries to work.
  <<	
