@@ -2,7 +2,7 @@ Info2: <<
 Package: critterding
 Version: 1.0.12
 Revision: 5
-Distribution: 10.5 10.6
+Distribution: 10.4
 Source: http://downloads.sourceforge.net/project/critterding/critterding/sources/critterding-beta12.1.tar.bz2
 Source-MD5: 29e9848d76ede1e743e05ab7b23082ba
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
@@ -14,7 +14,7 @@ PatchFile-MD5: a6c3f37d0e1d96a92b2b6df52288540c
 PatchScript: sed 's|@FINKPREFIX@|%i|g' <%{PatchFile} | patch -p1
 # Work done mostly by debian here http://patch-tracker.debian.org/patch/series/view/critterding/1.0-beta12.1-1/00fontandiconpath
 
-BuildDepends: fink (>= 0.24.12), freetype219, sdl, autoconf2.6, libftgl1, gcc4.2
+BuildDepends: fink (>= 0.24.12), freetype219, sdl, autoconf2.6, libftgl1, gcc44
 Depends: freetype219-shlibs, sdl-shlibs, libftgl1-shlibs
 ConfigureParams: --x-libraries=/usr/X11R6/lib --x-includes=/usr/X11R6/include CPPFLAGS="-I%p/include/freetype2 -I%p/include/ -I/usr/X11R6/include -I%p/include/SDL " LDFLAGS="-L/usr/X11R6/lib  `sdl-config --libs` -lGL `freetype-config --libs` -Wl,-framework,GLUT -Wl,-framework,OpenGL -lobjc" LIBS="-L/usr/X11R6/lib `sdl-config --libs` -lGL `freetype-config --libs` -Wl,-framework,GLUT -Wl,-framework,OpenGL -lobjc"
 CompileScript: <<
