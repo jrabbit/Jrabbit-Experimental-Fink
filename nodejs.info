@@ -9,11 +9,18 @@ Source-MD5: 9e9e791e125f6a601ebc663dc99c72a8
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://nodejs.org/
 License: BSD
+DocFiles: LICENSE doc/*
+GCC: 4.0
 Description: Evented I/O for v8 javascript 
 # PatchFile: %n.patch
 # PatchFile-MD5: 
 BuildDepends: system-openssl-dev
 BuildConflicts: ccache-default
 InstallScript: make install DESTDIR=%d
-DescUsage: Add /sw/lib/node to your NODE_PATH in your .profile for libraries to work.
- <<	
+RuntimeVars: <<
+	NODE_PATH: %p/lib/node
+<<
+InfoTest: <<
+	TestScript: make test || exit 2
+<<
+<<	
