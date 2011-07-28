@@ -1,9 +1,9 @@
 Info2: <<
 Package: qemu-img
-Version: 0.12.3
+Version: 0.14.1
 Revision: 1
 Source: http://download.savannah.gnu.org/releases/qemu/qemu-%v.tar.gz
-Source-MD5: d215e4568650e8019816397174c090e1
+Source-MD5: b6c713a8db638e173af53a62d5178640
 Maintainer: Jrabbit <jackjrabbit+fink@gmail.com>
 HomePage: http://www.qemu.org/
 License: GPL
@@ -11,10 +11,10 @@ Description: QEMU's tool to convert vm partiton types
 # PatchFile: %n.patch
 # PatchFile-MD5: 
 
-ConfigureParams: -prefix=%p
+# ConfigureParams: -prefix=%p
 CompileScript: <<
 ./configure %c
-make
+make qemu-img
 <<
 InstallScript: make qemu-img install DESTDIR=%d
  <<	
